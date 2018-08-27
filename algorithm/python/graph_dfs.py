@@ -1,3 +1,6 @@
+from simple_data_structure import Stack
+
+
 def graph_dfs(G, start, goal):
     # G = (V, E) is the graph with vertices, V, and edges, E.
     V, E = G
