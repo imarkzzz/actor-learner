@@ -50,6 +50,14 @@ public class StringMatchBoyerMoore {
         }
     }
 
+    /**
+     * 按好后缀规则移动位数
+     * @param j 坏字符对应的模式串中的字符下标
+     * @param m 模式串长度
+     * @param suffix 如果公共后缀的长度是k，那么记录suffix[k]=j(j表示公共后缀子串的起始下标)
+     * @param prefix 如果j等于0，也就是说，公共后缀子串也是模式串的前缀子串，那么记录prefix[k]=true
+     * @return
+     */
     private int moveByGS(int j, int m, int[] suffix, boolean[] prefix) {
         int k = m - 1 - j; // 好后缀长度
         if (suffix[k] != -1) return j - suffix[k] + 1;
