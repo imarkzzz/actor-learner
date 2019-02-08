@@ -17,7 +17,7 @@ public class StringMatchAhoCorasick {
     }
     private AcNode root =  new AcNode('/'); // 存储无意义字符
 
-    // 往 Trie 树中插入一个字符串
+    // 往 Trie 树中插入一个模式串
     public void addPattern(char[] pattern) {
         AcNode p = root;
         for (int i = 0; i < pattern.length; i++) {
@@ -32,7 +32,9 @@ public class StringMatchAhoCorasick {
         p.length = pattern.length;
     }
 
-
+    /**
+     * 构建失败指针
+     */
     public void buildFailurePointer() {
         Queue<AcNode> queue = new LinkedList<>();
         root.fail = null;
@@ -65,6 +67,10 @@ public class StringMatchAhoCorasick {
         }
     }
 
+    /**
+     * 匹配主串中是否出现模式串集合中的模式
+     * @param text 主串
+     */
     public void match(char[] text) {
         int n = text.length;
         AcNode p = root;
